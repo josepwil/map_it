@@ -1,24 +1,7 @@
-# README
+# Mapper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple application where user can store personalized maps. For example a user could store a 'Best Pizza in Vancouver' map which would have markers for all of their favourite pizza spots in the city. 
 
-Things you may want to cover:
+Tech Stack: React, Rails, Postgres, Leaflet
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
