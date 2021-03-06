@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   def index
-    render :json => {
-      name: "Brian"
-    }
+    user_id = 1
+    @user = User.find(user_id)
+    render :json => @user
   end
 end
