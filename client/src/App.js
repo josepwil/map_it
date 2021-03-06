@@ -1,24 +1,28 @@
-import { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
 import LoginForm from './LoginForm'
+import Home from './Home'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useState } from 'react'
 
 function App() {
 
-  // const [name, setName] = useState('')
+  const [activeUser, setActiveUser] = useState('');
 
-  // useEffect(() => {
-  //   axios.get('/api/users')
-  //     .then((res) => {
-  //       setName(res.data.name)
-  //     })
-  // }, [])
 
   return (
-    <div className="App">
-      {/* <h1>Name: {name}</h1> */}
-      <LoginForm/>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/home'>
+          <Home activeUser={activeUser}/>
+        </Route>
+
+        <Route path='/'>
+          <div className="App">
+            <LoginForm setActiveUser={setActiveUser}/>
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

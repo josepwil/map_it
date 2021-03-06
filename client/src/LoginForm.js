@@ -1,12 +1,24 @@
+import axios from 'axios';
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
-function LoginForm () {
+function LoginForm (props) {
+  const history = useHistory()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    axios.post('/api/users', {
+      email: email,
+      password: password
+    })
+      .then(res => {
+        props.setActiveUser(res.data.name)
+        history.push('/home')
+      })
   }
 
   return (
