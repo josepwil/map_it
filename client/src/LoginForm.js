@@ -11,7 +11,7 @@ function LoginForm (props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('/api/users', {
+    axios.post('/api/sessions', {
       email: email,
       password: password
     })
