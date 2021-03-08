@@ -5,3 +5,5 @@ A simple application where user can store personalized maps. For example a user 
 Tech Stack: React, Rails, Postgres, Leaflet
 
 
+run the server: bin/rails s
+run the client: npm start
