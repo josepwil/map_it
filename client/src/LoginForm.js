@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 function LoginForm (props) {
   const history = useHistory()
@@ -42,6 +42,7 @@ function LoginForm (props) {
         value="login"
       />
     </form>
+    <Link to="/register">Register</Link>
     </div>
   )
 }
