@@ -18,9 +18,9 @@ function App() {
         </Route>
 
         <Route path='/register'>
-          <RegisterForm />
+          <RegisterForm setActiveUser={setActiveUser}/>
         </Route>
-        
+
         <Route path='/'>
           <div className="App">
             <LoginForm setActiveUser={setActiveUser}/>

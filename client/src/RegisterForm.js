@@ -1,15 +1,32 @@
+import axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
-function RegisterForm() {
+function RegisterForm(props) {
 
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
+  const history = useHistory();
 
-  const handleSubmit = () => {
-    console.log('submitting')
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if(password !== passwordConfirmation) {
+      console.log('passwords do not match')
+      return 0;
+    }
+    axios.post('/api/users', {
+      email: email,
+      name: name,
+      password: password
+    })
+      .then(res => {
+        props.setActiveUser(res.data.name)
+        history.push('/home')
+      })
+
   }
 
   return (
