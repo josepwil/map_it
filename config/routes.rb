@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :sessions
     resources :users
     post '/logout' => 'sessions#destroy'
+    get '/current_user' => 'sessions#current_user'
   end
 end
