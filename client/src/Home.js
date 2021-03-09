@@ -1,7 +1,16 @@
+import axios from "axios";
+
 function Home (props) {
 
+  const logout = () => {
+    axios.post('api/logout')
+  }
+
   return (
-    <h3>Hi {props.activeUser}</h3>
+    <div>
+      <h3>Hi {props.activeUser}</h3>
+      <button onClick={logout}>Logout</button>
+    </div>
   )
 }
 

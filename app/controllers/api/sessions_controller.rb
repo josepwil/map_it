@@ -10,7 +10,9 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  # logging out
   def destroy
     session[:user_id] = nil
+    puts "LOGGGED OUT ~~~~~~~~~~"
   end
 end

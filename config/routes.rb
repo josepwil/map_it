@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   namespace :api do # /api/users   
     resources :sessions
     resources :users
-    get '/logout' => 'sessions#destroy'
+    post '/logout' => 'sessions#destroy'
   end
 end
