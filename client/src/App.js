@@ -9,36 +9,59 @@ import axios from 'axios';
 
 function App() {
 
-  const [activeUser, setActiveUser] = useState(null);
+  const [state, setState] = useState({
+    isLoggedIn: false,
+    user: {}
+  })
 
-  // useEffect to get activeUser
+  const handleLogin = (data) => {
+    setState({
+      isLoggedIn: true,
+      user: data.user
+    })
+  }
+  const handleLogout = () => {
+    setState({
+    isLoggedIn: false,
+    user: {}
+    })
+  }
+  
+  
   useEffect(() => {
-    axios.get('/api/current_user')
-      .then(res => {
-        setActiveUser(res.data)
-      })
-  }, [activeUser])
+    const loginStatus = () => {
+      axios.get('/api/logged_in')    
+        .then(response => {
+          if (response.data.logged_in) {
+            handleLogin(response)
+          } else {
+            handleLogout()
+          }
+          })
+          .catch(error => console.log('api errors:', error))
+    };
+    console.log('~~~~ checking for user ~~~~~~')
+    loginStatus();
+  }, [])
 
 
   return (
     <Router>
-      <Switch>
-        <UserContext.Provider value={activeUser}>
-        <Route path='/home'>
-          <Home activeUser={activeUser}/>
-        </Route>
+      <UserContext.Provider value={state}>
+        <Switch>
+          <Route path='/home'>
+            <Home state={state} handleLogout={handleLogout}/>
+          </Route>
 
-        <Route path='/register'>
-          <RegisterForm setActiveUser={setActiveUser}/>
-        </Route>
+          <Route path='/register' handleLogin={handleLogin}>
+            <RegisterForm/>
+          </Route>
 
-        <Route path='/'>
-          <div className="App">
-            <LoginForm setActiveUser={setActiveUser}/>
-          </div>
-        </Route>
-        </UserContext.Provider>
-      </Switch>
+          <Route path='/'>
+              <LoginForm handleLogin={handleLogin}/>
+          </Route>
+        </Switch>
+      </UserContext.Provider>
     </Router>
   );
 }

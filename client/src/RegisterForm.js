@@ -22,10 +22,13 @@ function RegisterForm(props) {
       name: name,
       password: password
     })
-      .then(res => {
-        props.setActiveUser(res.data.name)
-        history.push('/home')
+      .then(response => {
+        if (response.data.status === 'created') {
+          props.handleLogin(response.data)
+          history.push('/home')
+        }
       })
+      .catch(error => console.log('api errors: ', error))
 
   }
 

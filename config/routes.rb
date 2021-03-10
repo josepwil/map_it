@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api do # /api/users   
     resources :sessions
     resources :users
+    post '/login' => 'sessions#create'
     post '/logout' => 'sessions#destroy'
-    get '/current_user' => 'sessions#current_user'
+    get '/logged_in' => 'sessions#is_logged_in?'
   end
 end

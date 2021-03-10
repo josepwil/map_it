@@ -11,14 +11,18 @@ function LoginForm (props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('/api/sessions', {
+    axios.post('/api/login', {
       email: email,
       password: password
     })
-      .then(res => {
-        props.setActiveUser(res.data.name)
-        history.push('/home')
-      })
+    .then(response => {
+      if (response.data.logged_in) {
+        props.handleLogin(response.data)
+        history.push('/home') 
+      } 
+    })
+    .catch(error => console.log('api errors: ', error))
+    
   }
 
   return (
