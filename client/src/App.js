@@ -40,7 +40,6 @@ function App() {
           })
           .catch(error => console.log('api errors:', error))
     };
-    console.log('~~~~ checking for user ~~~~~~')
     loginStatus();
   }, [])
 
@@ -50,7 +49,7 @@ function App() {
       <UserContext.Provider value={state}>
         <Switch>
           <Route path='/home'>
-            <Home state={state} handleLogout={handleLogout}/>
+            <Home handleLogout={handleLogout}/>
           </Route>
 
           <Route path='/register' handleLogin={handleLogin}>
