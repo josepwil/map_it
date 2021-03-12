@@ -2,15 +2,11 @@ import axios from "axios";
 import { useContext } from "react";
 import { useHistory } from "react-router";
 import { UserContext } from "./UserContext";
+import Map from './Map'
 
 function Home (props) {
-
   const history = useHistory()
-
-  const user = useContext(UserContext).user
-  console.log('user ~~~', user)
-
-  
+  const user = useContext(UserContext).user  
 
   const logout = () => {
     axios.post('/api/logout')
@@ -22,7 +18,12 @@ function Home (props) {
 
   return (
     <div>
-      {user && <h3>Hi {user.name}</h3>}
+      {user &&
+      <> 
+        <h3>Hi {user.name}</h3>
+        <Map />
+      </>
+      }
       <button onClick={logout}>Logout</button>
     </div>
   )
