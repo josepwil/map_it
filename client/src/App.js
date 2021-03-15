@@ -2,7 +2,6 @@ import './App.css';
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Home from './Home'
-import Map from './Map'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { UserContext } from './UserContext'
