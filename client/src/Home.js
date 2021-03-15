@@ -16,12 +16,25 @@ function Home (props) {
     })
   }
 
+  const getMapData = () => {
+    return {
+      title: 'best pizza in Vancouver',
+      center: [51.505, -0.09],
+      markers: [
+        {coords: [51.505, -0.09], popup: 'dominos'}, 
+        {coords: [51.500, -0.09], popup: 'pizza hut'}
+      ]
+    }
+  }
+
+  const mapData = getMapData();
+
   return (
     <div>
       {user &&
       <> 
         <h3>Hi {user.name}</h3>
-        <Map />
+        <Map mapData={mapData}/>
       </>
       }
       <button onClick={logout}>Logout</button>
