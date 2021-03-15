@@ -1,10 +1,9 @@
-import { marker } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 function Map(props) {
   const {title, center, markers} = props.mapData
   return(
-    <div style={{height: '400px', width: '90%'}}>
+    <div style={{height: '600px', width: '600px'}}>
       <h3>{title}</h3>
     <MapContainer style={{height: '400px', width: '90%'}} center={center} zoom={13} scrollWheelZoom={false}>
   <TileLayer
@@ -13,9 +12,9 @@ function Map(props) {
   />
   
   {
-    markers.map((marker) => {
+    markers.map((marker, index) => {
       return(
-        <Marker position={marker.coords}>
+        <Marker key={index} position={marker.coords}>
           <Popup>
             {marker.popup}
           </Popup>
