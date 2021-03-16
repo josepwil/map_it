@@ -14,3 +14,23 @@ user = User.create([{
   email: 'brian@test.com', 
   password: 'test'
   }])
+
+
+map = Map.create(
+  title: 'Best Pizza spots in London',
+  center: '51.505, -0.09'
+)
+
+markers = Marker.create([
+  {
+  map_id: 1,
+  coords: '51.505, -0.09',
+  popup: 'Dominos'
+  },
+  {
+    map_id: 1,
+    coords: '51.500, -0.09',
+    popup: 'Pizza Hut'
+  }
+])
+
