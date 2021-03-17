@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { List, ListItem, ListItemText } from '@material-ui/core'
+
 function MapList () {
 const [maps, setMaps] = useState([])
-console.log('I am maps', maps)
+
+
+const handleClick = (id) => {
+  console.log(id)
+}
 
 useEffect(() => {
   axios.get('/api/maps')
@@ -15,14 +21,18 @@ useEffect(() => {
 
   return (
     <div>
-      <h3>I am the map list</h3>
-      {
-        maps.map((map) => {
-          return (
-            <h3 key={map.id}>{map.title}</h3>
-          )
-        })
-      }
+      <h3>My maps</h3>
+      <List>
+        {
+          maps.map((map) => {
+            return (
+              <ListItem button onClick={() => handleClick(map.id)} key={map.id} >
+                <ListItemText primary={map.title}/>
+              </ListItem>
+            )
+          })
+        }
+      </List>
     </div>
 
   )

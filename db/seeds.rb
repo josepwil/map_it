@@ -15,10 +15,19 @@ user = User.create([{
   password: 'test'
   }])
 
+Marker.destroy_all
+Map.destroy_all
 
-map = Map.create(
+map = Map.create([
+  {
   title: 'Best Pizza spots in London',
   center: '51.505, -0.09'
+},
+{
+  title: 'Best cafes in London',
+  center: '51.605, -0.09'
+}
+]
 )
 
 markers = Marker.create([
@@ -30,6 +39,16 @@ markers = Marker.create([
   {
     map_id: 1,
     coords: '51.500, -0.09',
+    popup: 'Pizza Hut'
+  },
+  {
+  map_id: 2,
+  coords: '51.605, -0.09',
+  popup: 'Dominos'
+  },
+  {
+    map_id: 2,
+    coords: '51.600, -0.09',
     popup: 'Pizza Hut'
   }
 ])
