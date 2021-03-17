@@ -3,12 +3,28 @@ import axios from 'axios';
 
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
-function MapList () {
+function MapList (props) {
 const [maps, setMaps] = useState([])
 
 
 const handleClick = (id) => {
-  console.log(id)
+  axios.get(`/api/maps/${id}`)
+    .then(res => {
+      const {map, markers} = res.data
+      const formattedMarkers = markers.map(marker => {
+        return {
+          ...marker,
+          coords: marker.coords.split(',').map(x => parseFloat(x))
+        }
+      })
+      const formattedMap = {
+        ...map, 
+        center: map.center.split(',').map(x => parseFloat(x)),
+        markers: formattedMarkers
+      }
+      console.log(formattedMap)
+      props.setMapData(formattedMap);
+    })
 }
 
 useEffect(() => {
