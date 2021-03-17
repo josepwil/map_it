@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useHistory } from "react-router";
 import { UserContext } from "./UserContext";
 import Map from './Map'
+import MapList from './MapList'
 
 function Home (props) {
   const history = useHistory()
@@ -35,6 +36,7 @@ function Home (props) {
       <> 
         <h3>Hi {user.name}</h3>
         <Map mapData={mapData}/>
+        <MapList />
       </>
       }
       <button onClick={logout}>Logout</button>
