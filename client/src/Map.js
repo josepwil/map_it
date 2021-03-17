@@ -1,14 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
-import {useEffect } from 'react'
+import MapController from './MapController'
 
 function Map(props) {
-  
-  const map = useMap()
-
-  useEffect(() => {
-    map.setView(props.mapData.center, 13)
-  }, [props.mapData.center])
-
   return(
     <div style={{height: '600px', width: '600px'}}>
       <h3>{props.mapData.title}</h3>
@@ -29,6 +22,7 @@ function Map(props) {
       )
     })
 }
+<MapController mapData={props.mapData}/>
 </MapContainer>
     </div>
   )
