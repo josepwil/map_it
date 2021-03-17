@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 function MapController(props) {
   const map = useMap()
-  map.setView(props.mapData.center)
+  map.setView(props.mapData.center, 13)
 
   return null
 }

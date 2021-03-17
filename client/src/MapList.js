@@ -6,7 +6,6 @@ import { List, ListItem, ListItemText } from '@material-ui/core'
 function MapList (props) {
 const [maps, setMaps] = useState([])
 
-
 const handleClick = (id) => {
   axios.get(`/api/maps/${id}`)
     .then(res => {
@@ -22,7 +21,6 @@ const handleClick = (id) => {
         center: map.center.split(',').map(x => parseFloat(x)),
         markers: formattedMarkers
       }
-      console.log(formattedMap)
       props.setMapData(formattedMap);
     })
 }
