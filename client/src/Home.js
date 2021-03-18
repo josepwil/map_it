@@ -9,7 +9,7 @@ function Home (props) {
   const history = useHistory()
   const user = useContext(UserContext).user
   const [mapData, setMapData] = useState({
-    title: 'best pizza in Vancouver',
+    title: 'Best Pizza spots in London',
     center: [51.505, -0.09],
     markers: [
       {coords: [51.505, -0.09], popup: 'dominos'}, 

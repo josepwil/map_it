@@ -21,11 +21,13 @@ Map.destroy_all
 map = Map.create([
   {
   title: 'Best Pizza spots in London',
-  center: '51.505, -0.09'
+  center: '51.505, -0.09',
+  user_id: 1
 },
 {
   title: 'Best cafes in London',
-  center: '51.605, -0.09'
+  center: '51.605, -0.09',
+  user_id: 1
 }
 ]
 )

@@ -1,5 +1,4 @@
 import { useMap } from 'react-leaflet'
-import { useEffect } from 'react'
 
 function MapController(props) {
   const map = useMap()
