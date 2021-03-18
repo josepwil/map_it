@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import { UserContext } from "./UserContext";
 import Map from './Map'
 import MapList from './MapList'
+import NewMap from './NewMap'
 
 function Home (props) {
   const history = useHistory()
@@ -33,6 +34,7 @@ function Home (props) {
       <> 
         <h3>Hi {user.name}</h3>
         <Map mapData={mapData}/>
+        <NewMap setMapData={setMapData}/>
         <MapList setMapData={setMapData}/>
       </>
       }
