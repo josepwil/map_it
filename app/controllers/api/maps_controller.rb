@@ -1,6 +1,8 @@
 class Api::MapsController < ApplicationController 
+  
   def index
-    @maps = Map.all
+    @user_id = session[:user_id]
+    @maps = Map.where(user_id: @user_id)
        if @maps
           render json: {
           maps: @maps,

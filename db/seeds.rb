@@ -8,12 +8,19 @@
 
 
 puts "Seeding data ..."
+User.destroy_all
 
 user = User.create([{ 
   name: 'Brian', 
   email: 'brian@test.com', 
   password: 'test'
-  }])
+  },
+  {
+  name: 'Alice', 
+  email: 'alice@test.com', 
+  password: 'test'
+  }
+  ])
 
 Marker.destroy_all
 Map.destroy_all
@@ -28,6 +35,11 @@ map = Map.create([
   title: 'Best cafes in London',
   center: '51.605, -0.09',
   user_id: 1
+},
+{
+  title: 'Best record stores in London',
+  center: '51.605, -0.09',
+  user_id: 2
 }
 ]
 )
@@ -46,12 +58,17 @@ markers = Marker.create([
   {
   map_id: 2,
   coords: '51.605, -0.09',
-  popup: 'Dominos'
+  popup: 'Starbucks'
   },
   {
     map_id: 2,
     coords: '51.600, -0.09',
-    popup: 'Pizza Hut'
+    popup: 'Cafe Nero'
+  },
+  {
+    map_id: 3,
+    coords: '51.600, -0.09',
+    popup: 'Cool records'
   }
 ])
 
