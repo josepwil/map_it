@@ -1,8 +1,9 @@
 import { useMap } from 'react-leaflet'
 
 function MapController(props) {
+  console.log('its me')
   const map = useMap()
-  map.setView(props.mapData.center, 13)
+  map.flyTo(props.mapData.center, 13)
 
   return null
 }
