@@ -7,13 +7,13 @@ function Map(props) {
   
   const handleClick = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-     const { latitude, longitude } = position.coords;
- 
-     props.setMapData({
-       title: 'new map',
-       center: [latitude, longitude],
-       markers: []
-     })
+      const { latitude, longitude } = position.coords;
+      
+      props.setMapData({
+        title: 'new map',
+        center: [latitude, longitude],
+        markers: []
+      })
     }) 
     history.push('/add')
    }

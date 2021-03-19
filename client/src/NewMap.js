@@ -8,6 +8,11 @@ import AddMarker from './AddMarker'
 function NewMap(props) {
   const [mapName, setMapName] = useState('name your map');
 
+  const handleChange = (e) => {
+    // will need to debounce this
+    console.log(e.target.value)
+  }
+
   return (
     <div style={{height: '600px', width: '600px'}}>
       <input value={mapName} onChange={e => setMapName(e.target.value)} />
@@ -21,7 +26,7 @@ function NewMap(props) {
           return(
             <Marker key={index} position={marker.coords}>
               <Popup>
-                {marker.popup}
+                {<input onChange={(e) => handleChange(e)} value={marker.popup} autoFocus/>}
               </Popup>
             </Marker>
           )

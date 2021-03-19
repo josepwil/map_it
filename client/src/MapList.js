@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
 function MapList (props) {
+const history = useHistory()
 const [maps, setMaps] = useState([])
 
 const handleClick = (id) => {
@@ -22,6 +24,7 @@ const handleClick = (id) => {
         markers: formattedMarkers
       }
       props.setMapData(formattedMap);
+      history.push('/')
     })
 }
 
