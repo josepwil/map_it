@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import MapController from './MapController'
+import AddMarker from './AddMarker'
 
 function NewMap(props) {
   const [mapName, setMapName] = useState('name your map');
@@ -27,6 +28,7 @@ function NewMap(props) {
         })
       }
       <MapController mapData={props.mapData}/>
+      <AddMarker mapData={props.mapData} setMapData={props.setMapData} />
     </MapContainer>
     <h3>save map</h3>
   </div>
