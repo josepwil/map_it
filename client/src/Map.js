@@ -1,7 +1,23 @@
+import { useHistory } from 'react-router'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import MapController from './MapController'
 
 function Map(props) {
+  const history = useHistory();
+  
+  const handleClick = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+     const { latitude, longitude } = position.coords;
+ 
+     props.setMapData({
+       title: 'new map',
+       center: [latitude, longitude],
+       markers: []
+     })
+    }) 
+    history.push('/add')
+   }
+
   return(
     <div style={{height: '600px', width: '600px'}}>
       <h3>{props.mapData.title}</h3>
@@ -24,6 +40,7 @@ function Map(props) {
 }
 <MapController mapData={props.mapData}/>
 </MapContainer>
+<h3 onClick={handleClick}>add new map</h3>
     </div>
   )
 }

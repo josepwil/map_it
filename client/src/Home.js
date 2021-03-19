@@ -2,6 +2,8 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { UserContext } from "./UserContext";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Map from './Map'
 import MapList from './MapList'
 import NewMap from './NewMap'
@@ -29,17 +31,34 @@ function Home (props) {
   
 
   return (
-    <div>
-      {user &&
-      <> 
-        <h3>Hi {user.name}</h3>
-        <Map mapData={mapData}/>
-        <NewMap setMapData={setMapData}/>
-        <MapList setMapData={setMapData}/>
-      </>
-      }
-      <button onClick={logout}>Logout</button>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/add">
+          <div>
+            {user &&
+            <> 
+              <h3>Hi {user.name}</h3>
+              <NewMap mapData={mapData} setMapData={setMapData}/>
+              <MapList setMapData={setMapData}/>
+            </>
+            }
+            <button onClick={logout}>Logout</button>
+          </div>
+        </Route>
+        <Route path="/">
+          <div>
+            {user &&
+            <> 
+              <h3>Hi {user.name}</h3>
+              <Map mapData={mapData} setMapData={setMapData}/>
+              <MapList setMapData={setMapData}/>
+            </>
+            }
+            <button onClick={logout}>Logout</button>
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
