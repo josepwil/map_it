@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useHistory } from 'react-router'
 
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
-import NewMapController from './MapController'
+import NewMapController from './NewMapController'
 import AddMarker from './AddMarker'
 
 function NewMap(props) {

@@ -49,7 +49,7 @@ function Home (props) {
           <div>
             {user &&
             <> 
-              <h3>Hi {user.name}</h3>
+              <h3>Hello {user.name}</h3>
               <Map mapData={mapData} setMapData={setMapData}/>
               <MapList setMapData={setMapData}/>
             </>
