@@ -29,8 +29,19 @@ function NewMap(props) {
 
   const saveMap = () => {
     // update Map title
+    const formattedMarkers = props.mapData.markers.map(marker => {
+      return {
+        ...marker,
+        coords: marker.coords.join(',')
+      }
+    })
+    const formattedMap = {
+      ...props.mapData,
+      center: props.mapData.center.join(','),
+      markers: formattedMarkers
+    }
 
-    console.log(props.mapData)
+    console.log(formattedMap)
   }
 
   return (
