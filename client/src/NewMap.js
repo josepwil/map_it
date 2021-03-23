@@ -18,12 +18,24 @@ function NewMap(props) {
       ...props.mapData,
       markers: markerCopy
     })
-    console.log(props.mapData);
+  }
+
+  const handleNameChange = (name) => {
+    props.setMapData({
+      ...props.mapData,
+      title: name
+    })
+  }
+
+  const saveMap = () => {
+    // update Map title
+
+    console.log(props.mapData)
   }
 
   return (
     <div style={{height: '600px', width: '600px'}}>
-      <input value={mapName} onChange={e => setMapName(e.target.value)} />
+      <input value={props.mapData.title} onChange={e => handleNameChange(e.target.value)} />
       <MapContainer style={{height: '400px', width: '90%'}} center={props.mapData.center} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -44,7 +56,7 @@ function NewMap(props) {
       <NewMapController mapData={props.mapData}/>
       <AddMarker mapData={props.mapData} setMapData={props.setMapData} />
     </MapContainer>
-    <h3>save map</h3>
+    <h3 onClick={saveMap}>save map</h3>
   </div>
   )
 }
