@@ -4,6 +4,7 @@ import { useHistory } from 'react-router'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import NewMapController from './NewMapController'
 import AddMarker from './AddMarker'
+import axios from 'axios'
 
 function NewMap(props) {
   const [mapName, setMapName] = useState('name your map');
@@ -41,7 +42,13 @@ function NewMap(props) {
       markers: formattedMarkers
     }
 
-    console.log(formattedMap)
+    axios.post('/api/maps', formattedMap)
+      .then((res) => {
+        console.log('map created')
+      })
+      .catch((err) => {
+        console.log('err', err)
+      })
   }
 
   return (

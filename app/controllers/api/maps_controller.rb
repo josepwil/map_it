@@ -1,5 +1,6 @@
 class Api::MapsController < ApplicationController 
-  
+  skip_before_action :verify_authenticity_token
+
   def index
     @user_id = session[:user_id]
     @maps = Map.where(user_id: @user_id)
@@ -30,6 +31,26 @@ class Api::MapsController < ApplicationController
            errors: ['user not found']
          }
         end
+ end
+
+ def create
+  @user_id = session[:user_id]
+  map = Map.new(
+    title: params[:title],
+    center: params[:center],
+    user_id: @user_id
+  )
+ 
+  map.save
+  map_id = map.id
+  params[:markers].each do |marker|
+    marker = Marker.new(
+      map_id: map_id,
+      coords: marker[:coords],
+      popup: marker[:popup]
+    )
+    marker.save
+  end
  end
 
 end
