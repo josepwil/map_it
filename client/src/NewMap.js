@@ -8,9 +8,17 @@ import AddMarker from './AddMarker'
 function NewMap(props) {
   const [mapName, setMapName] = useState('name your map');
 
-  const handleChange = (e) => {
+  const setMarkerPopup = (e, index) => {
+    const markerCopy = [...props.mapData.markers];
+    const updatedMarker = {...markerCopy[index]}
+    updatedMarker.popup = e.target.value
+    markerCopy[index] = updatedMarker
     // will need to debounce this
-    console.log(e.target.value)
+    props.setMapData({
+      ...props.mapData,
+      markers: markerCopy
+    })
+    console.log(props.mapData);
   }
 
   return (
@@ -26,7 +34,8 @@ function NewMap(props) {
           return(
             <Marker key={index} position={marker.coords}>
               <Popup>
-                {<input onChange={(e) => handleChange(e)} value={marker.popup} autoFocus/>}
+                {/* needs work */}
+                {<input onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>}
               </Popup>
             </Marker>
           )
