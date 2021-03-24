@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import { List, ListItem, ListItemText } from '@material-ui/core'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 function MapList (props) {
 const history = useHistory()
@@ -43,9 +44,12 @@ useEffect(() => {
         {
           maps.map((map) => {
             return (
-              <ListItem button onClick={() => handleClick(map.id)} key={map.id} >
-                <ListItemText primary={map.title}/>
+              <li>
+              <ListItem button key={map.id} onClick={() => handleClick(map.id)} >
+                <ListItemText primary={map.title} />
               </ListItem>
+                <DeleteForeverIcon />
+              </li>
             )
           })
         }
