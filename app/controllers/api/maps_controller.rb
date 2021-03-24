@@ -53,4 +53,10 @@ class Api::MapsController < ApplicationController
   end
  end
 
+ def destroy
+  Marker.where(map_id: params[:id]).destroy_all
+  Map.find(params[:id]).destroy
+ end
+
+
 end
