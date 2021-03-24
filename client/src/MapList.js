@@ -29,6 +29,16 @@ const handleClick = (id) => {
     })
 }
 
+const deleteMap = (id) => {
+  axios.delete(`/api/maps/${id}`)
+    .then(res => {
+      console.log('map deleted')
+    })
+    .catch(err => {
+      console.log('err', err)
+    })
+}
+
 useEffect(() => {
   axios.get('/api/maps')
     .then(res => {
@@ -48,7 +58,7 @@ useEffect(() => {
               <ListItem button key={map.id} onClick={() => handleClick(map.id)} >
                 <ListItemText primary={map.title} />
               </ListItem>
-                <DeleteForeverIcon />
+                <DeleteForeverIcon onClick={() => deleteMap(map.id)} />
               </li>
             )
           })
