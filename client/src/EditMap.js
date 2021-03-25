@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useHistory } from 'react-router'
 
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import NewMapController from './NewMapController'
 import AddMarker from './AddMarker'
 import axios from 'axios'
@@ -19,6 +21,10 @@ function EditMap(props) {
       ...props.mapData,
       markers: markerCopy
     })
+  }
+  
+  const deleteMarker = (index) => {
+    console.log('deleting', index);
   }
 
   const handleNameChange = (name) => {
@@ -58,8 +64,8 @@ function EditMap(props) {
           return(
             <Marker key={index} position={marker.coords}>
               <Popup>
-                {/* needs work */}
-                {<input onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>}
+                <input onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>
+                <DeleteIcon onClick={() => deleteMarker(index)} />
               </Popup>
             </Marker>
           )
