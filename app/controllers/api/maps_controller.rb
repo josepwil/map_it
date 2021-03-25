@@ -53,6 +53,21 @@ class Api::MapsController < ApplicationController
   end
  end
 
+def update
+  map = Map.find(params[:id])
+  map.update(title: params[:title])
+  Marker.where(map_id: params[:id]).destroy_all
+  params[:markers].each do |marker|
+    marker = Marker.new(
+      map_id: params[:id],
+      coords: marker[:coords],
+      popup: marker[:popup]
+    )
+    marker.save
+  end
+
+ end
+
  def destroy
   Marker.where(map_id: params[:id]).destroy_all
   Map.find(params[:id]).destroy
