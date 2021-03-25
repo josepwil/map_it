@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Map from './Map'
 import MapList from './MapList'
 import NewMap from './NewMap'
+import EditMap from './EditMap'
 
 function Home (props) {
   const history = useHistory()
@@ -39,6 +40,18 @@ function Home (props) {
             <> 
               <h3>Hi {user.name}</h3>
               <NewMap mapData={mapData} setMapData={setMapData}/>
+              <MapList setMapData={setMapData}/>
+            </>
+            }
+            <button onClick={logout}>Logout</button>
+          </div>
+        </Route>
+        <Route path="/edit">
+          <div>
+            {user &&
+            <> 
+              <h3>Hi {user.name}</h3>
+              <EditMap mapData={mapData} setMapData={setMapData}/>
               <MapList setMapData={setMapData}/>
             </>
             }
