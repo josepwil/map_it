@@ -24,7 +24,12 @@ function EditMap(props) {
   }
   
   const deleteMarker = (index) => {
-    console.log('deleting', index);
+    const markerCopy = [...props.mapData.markers];
+    markerCopy.splice(index, 1)
+    props.setMapData({
+      ...props.mapData,
+      markers: markerCopy
+    })
   }
 
   const handleNameChange = (name) => {
