@@ -39,7 +39,7 @@ function EditMap(props) {
     })
   }
 
-  const saveMap = () => {
+  const saveMap = (id) => {
     // update Map title
     const formattedMarkers = props.mapData.markers.map(marker => {
       return {
@@ -52,8 +52,13 @@ function EditMap(props) {
       center: props.mapData.center.join(','),
       markers: formattedMarkers
     }
-
-    console.log('formatted map', formattedMap)
+    axios.put(`/api/maps/${id}`, formattedMap)
+      .then((res) => {
+        console.log('map updated')
+      })
+      .catch((err) => {
+        console.log('err', err)
+      })
   }
 
   return (
@@ -79,7 +84,7 @@ function EditMap(props) {
       <NewMapController mapData={props.mapData}/>
       <AddMarker mapData={props.mapData} setMapData={props.setMapData} />
     </MapContainer>
-    <h3 onClick={saveMap}>save map</h3>
+    <h3 onClick={() => saveMap(props.mapData.id)}>save map</h3>
   </div>
   )
 }
