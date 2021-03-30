@@ -10,6 +10,8 @@ import NewMap from './NewMap'
 import EditMap from './EditMap'
 
 function Home (props) {
+  console.log('rendering home')
+
   const history = useHistory()
   const user = useContext(UserContext).user
   const [mapData, setMapData] = useState({
@@ -20,6 +22,14 @@ function Home (props) {
       {coords: [51.500, -0.09], popup: 'pizza hut'}
     ]
   })  
+  const [maps, setMaps] = useState()
+
+  const getMapData = () => {
+    axios.get('/api/maps')
+    .then(res => {
+      setMaps(res.data.maps)
+    })
+  }
 
   const logout = () => {
     axios.post('/api/logout')
@@ -39,8 +49,8 @@ function Home (props) {
             {user &&
             <> 
               <h3>Hi {user.name}</h3>
-              <NewMap mapData={mapData} setMapData={setMapData}/>
-              <MapList setMapData={setMapData}/>
+              <NewMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
+              <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
             </>
             }
             <button onClick={logout}>Logout</button>
@@ -51,20 +61,20 @@ function Home (props) {
             {user &&
             <> 
               <h3>Hi {user.name}</h3>
-              <EditMap mapData={mapData} setMapData={setMapData}/>
-              <MapList setMapData={setMapData}/>
+              <EditMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
+              <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
             </>
             }
             <button onClick={logout}>Logout</button>
           </div>
         </Route>
-        <Route path="/">
+        <Route path="/home">
           <div>
             {user &&
             <> 
               <h3>Hello {user.name}</h3>
               <Map mapData={mapData} setMapData={setMapData}/>
-              <MapList setMapData={setMapData}/>
+              <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
             </>
             }
             <button onClick={logout}>Logout</button>

@@ -7,6 +7,7 @@ import AddMarker from './AddMarker'
 import axios from 'axios'
 
 function NewMap(props) {
+  const history  = useHistory();
   const [mapName, setMapName] = useState('name your map');
 
   const setMarkerPopup = (e, index) => {
@@ -45,6 +46,8 @@ function NewMap(props) {
     axios.post('/api/maps', formattedMap)
       .then((res) => {
         console.log('map created')
+        props.getMapData();
+        history.push('/home')
       })
       .catch((err) => {
         console.log('err', err)

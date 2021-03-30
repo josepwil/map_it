@@ -4,6 +4,7 @@ import MapController from './MapController'
 
 function Map(props) {
   const history = useHistory();
+  console.log('rendering map')
   
   const handleClick = () => {
     navigator.geolocation.getCurrentPosition((position) => {

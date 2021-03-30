@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, forceUpdate } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 
@@ -6,9 +6,11 @@ import { List, ListItem, ListItemText } from '@material-ui/core'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
 
-function MapList (props) {
+function MapList ({ setMapData, mapData, maps, getMapData }) {
 const history = useHistory()
-const [maps, setMaps] = useState([])
+
+console.log('rendering maplist')
+
 
 const handleClick = (id) => {
   axios.get(`/api/maps/${id}`)
@@ -25,16 +27,16 @@ const handleClick = (id) => {
         center: map.center.split(',').map(x => parseFloat(x)),
         markers: formattedMarkers
       }
-      props.setMapData(formattedMap);
-      history.push('/')
+      setMapData(formattedMap);
+      history.push('/home')
     })
 }
 
 const deleteMap = (id) => {
   axios.delete(`/api/maps/${id}`)
     .then(res => {
-      console.log('map deleted')
-      history.push('/')
+      getMapData()
+      history.push('/home')
     })
     .catch(err => {
       console.log('err', err)
@@ -56,17 +58,13 @@ const editMap = (id) => {
       center: map.center.split(',').map(x => parseFloat(x)),
       markers: formattedMarkers
     }
-    props.setMapData(formattedMap);
+    setMapData(formattedMap);
     history.push('/edit')
   })
 }
 
 useEffect(() => {
-  axios.get('/api/maps')
-    .then(res => {
-      setMaps(res.data.maps)
-      console.log('changing')
-    })
+  getMapData()
 }, [])
 
 
@@ -74,7 +72,7 @@ useEffect(() => {
     <div>
       <h3>My maps</h3>
       <List>
-        {
+        { maps &&
           maps.map((map) => {
             return (
               <li>

@@ -9,6 +9,7 @@ import AddMarker from './AddMarker'
 import axios from 'axios'
 
 function EditMap(props) {
+  const history = useHistory();
   const [mapName, setMapName] = useState('name your map');
 
   const setMarkerPopup = (e, index) => {
@@ -55,6 +56,8 @@ function EditMap(props) {
     axios.put(`/api/maps/${id}`, formattedMap)
       .then((res) => {
         console.log('map updated')
+        props.getMapData();
+        history.push('/home')
       })
       .catch((err) => {
         console.log('err', err)

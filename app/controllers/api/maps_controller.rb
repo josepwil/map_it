@@ -3,7 +3,7 @@ class Api::MapsController < ApplicationController
 
   def index
     @user_id = session[:user_id]
-    @maps = Map.where(user_id: @user_id)
+    @maps = Map.where(user_id: @user_id).order("id DESC")
        if @maps
           render json: {
           maps: @maps,
