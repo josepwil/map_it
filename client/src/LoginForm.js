@@ -26,7 +26,7 @@ function LoginForm (props) {
   }
 
   return (
-    <div className='loginForm'>
+    <div className='formContainer'>
     <h3>Mapper</h3>
     <form onSubmit={(event => handleSubmit(event))}>
       <input 

@@ -33,7 +33,7 @@ function RegisterForm(props) {
   }
 
   return (
-    <div>
+    <div className='formContainer'>
     <h3>Register</h3>
     <form onSubmit={(event => handleSubmit(event))}>
       <input 
@@ -60,12 +60,13 @@ function RegisterForm(props) {
         onChange={e => setPasswordConfirmation(e.target.value)}
         placeholder="confirm password"
       />
-      <input 
+      <input
+        className='button' 
         type="submit"
         value="register"
       />
     </form>
-    <Link to="/">Sign in</Link>
+    <Link id='loginLink' to="/">login</Link>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-.loginForm {
+.formContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,6 +37,9 @@
   }
 
   #registerLink {
+    font-size: 12px;
+  }
+  #loginLink {
     font-size: 12px;
   }
 }
