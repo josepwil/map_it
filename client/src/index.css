@@ -1,4 +1,11 @@
 body {
+  background-color: #66ccff;
+  background-image: url(http://pixelartmaker.com/art/d26e4686e0cce9c.png);
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

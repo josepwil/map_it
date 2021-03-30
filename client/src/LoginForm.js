@@ -26,8 +26,8 @@ function LoginForm (props) {
   }
 
   return (
-    <div>
-    <h3>Login</h3>
+    <div className='loginForm'>
+    <h3>Mapper</h3>
     <form onSubmit={(event => handleSubmit(event))}>
       <input 
         type="text" 
@@ -41,12 +41,12 @@ function LoginForm (props) {
         onChange={e => setPassword(e.target.value)}
         placeholder="password"
       />
-      <input 
+      <input className='button' 
         type="submit"
         value="login"
       />
     </form>
-    <Link to="/register">Register</Link>
+    <Link id='registerLink' to="/register">register</Link>
     </div>
   )
 }

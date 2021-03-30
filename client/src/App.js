@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Home from './Home'
