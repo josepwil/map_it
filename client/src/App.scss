@@ -48,19 +48,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100vw;
 
 
   .nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100vw;
     font-family: 'VT323', monospace;
+    width: 100vw;
+    margin: 1rem 0;
 
     h3 {
       font-size: 50px;
       color: greenyellow;
       margin: 0;
+    }
+
+    .button {
+      background-color: transparent;
+      border: none;
+      font-size: 30px;
+      font-family: 'VT323', monospace;
+      color: greenyellow;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      color: white;
+      cursor: pointer;
     }
   }
 
@@ -68,6 +85,7 @@
     display: flex;
     width: 100vw;
     justify-content: center;
+    
 
     .mapContainerL {
       display: flex;
@@ -78,6 +96,33 @@
       width: 40rem;
       background-color: rgba(255, 255, 255, 0.8);
       margin: 0 2rem;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+      
+      h3 {
+        font-family: 'VT323', monospace;
+        font-size: 50px;
+        margin: 1rem;
+      }
+
+      input {
+        font-family: 'VT323', monospace;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 1rem;
+        background-color: white;
+      }
+
+      .mapAction {
+        align-self: flex-end;
+        margin-right: 1rem;
+        font-family: 'VT323', monospace;
+        font-size: 30px;
+      }
+      .mapAction:hover {
+        color: yellowgreen;
+        cursor: pointer;
+      }
     }
 
     .mapContainerR {
@@ -85,6 +130,8 @@
       height: 40rem;
       margin: 0 2rem;
       background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 
       .list {
         height: 39rem;

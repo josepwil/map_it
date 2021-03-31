@@ -49,8 +49,8 @@ function Home (props) {
             {user &&
             <>
               <div className='nav'>
-                <h3>Hi {user.name}</h3>
-                <button onClick={logout}>Logout</button>
+                <h3>Hi {user.name},</h3>
+                <button className='button' onClick={logout}>SIGN OUT</button>
               </div> 
               <div className='mapContainer'>
                 <NewMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
@@ -65,8 +65,8 @@ function Home (props) {
             {user &&
             <> 
               <div className='nav'>
-                <h3>Hi {user.name}</h3>
-                <button onClick={logout}>Logout</button>
+                <h3>Hi {user.name},</h3>
+                <button className='button' onClick={logout}>SIGN OUT</button>
               </div> 
               <div className='mapContainer'>
                 <EditMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
@@ -82,7 +82,7 @@ function Home (props) {
             <> 
               <div className='nav'>
                 <h3>Hi {user.name},</h3>
-                <button className='button' onClick={logout}>Logout</button>
+                <button className='button' onClick={logout}>SIGN OUT</button>
               </div> 
               <div className='mapContainer'>
                 <Map mapData={mapData} setMapData={setMapData}/>

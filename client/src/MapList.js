@@ -1,3 +1,5 @@
+import './App.scss'
+
 import { useEffect, useState, forceUpdate } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
@@ -76,7 +78,7 @@ useEffect(() => {
             return (
               <li>
               <ListItem button key={map.id} onClick={() => handleClick(map.id)} style={{"&:hover": {backgroundColor: "white"}}} >
-                <ListItemText primary={map.title} />
+                <ListItemText disableTypography primary={map.title} style={{fontFamily: "'VT323', monospace", fontSize:"20px"}}/>
               </ListItem>
                 <EditIcon className='editIcon' onClick={() => editMap(map.id)}/>
                 <DeleteForeverIcon className='deleteIcon' onClick={() => deleteMap(map.id)} />

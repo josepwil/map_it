@@ -56,7 +56,7 @@ function NewMap(props) {
 
   return (
     <div className='mapContainerL'>
-      <input value={props.mapData.title} onChange={e => handleNameChange(e.target.value)} />
+      <input autofocus value={props.mapData.title} onChange={e => handleNameChange(e.target.value)} />
       <MapContainer style={{height: '85%', width: '85%'}} center={props.mapData.center} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -77,7 +77,7 @@ function NewMap(props) {
       <NewMapController mapData={props.mapData}/>
       <AddMarker mapData={props.mapData} setMapData={props.setMapData} />
     </MapContainer>
-    <h3 onClick={saveMap}>save map</h3>
+    <h3 className='mapAction' onClick={saveMap}>SAVE MAP</h3>
   </div>
   )
 }

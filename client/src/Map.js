@@ -40,7 +40,7 @@ function Map(props) {
         }
         <MapController mapData={props.mapData}/>
       </MapContainer>
-      <h3 onClick={handleClick}>add new map</h3>
+      <h3 className='mapAction' onClick={handleClick}>+NEWMAP</h3>
     </div>
   )
 }
