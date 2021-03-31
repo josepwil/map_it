@@ -69,18 +69,17 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <h3>My maps</h3>
-      <List>
+    <div className='mapContainerR'>
+      <List className='list'>
         { maps &&
           maps.map((map) => {
             return (
               <li>
-              <ListItem button key={map.id} onClick={() => handleClick(map.id)} >
+              <ListItem button key={map.id} onClick={() => handleClick(map.id)} style={{"&:hover": {backgroundColor: "white"}}} >
                 <ListItemText primary={map.title} />
               </ListItem>
-                <EditIcon onClick={() => editMap(map.id)}/>
-                <DeleteForeverIcon onClick={() => deleteMap(map.id)} />
+                <EditIcon className='editIcon' onClick={() => editMap(map.id)}/>
+                <DeleteForeverIcon className='deleteIcon' onClick={() => deleteMap(map.id)} />
               </li>
             )
           })

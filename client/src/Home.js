@@ -45,39 +45,51 @@ function Home (props) {
     <Router>
       <Switch>
         <Route path="/add">
-          <div>
+          <div className='homeContainer'>
             {user &&
-            <> 
-              <h3>Hi {user.name}</h3>
-              <NewMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
-              <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+            <>
+              <div className='nav'>
+                <h3>Hi {user.name}</h3>
+                <button onClick={logout}>Logout</button>
+              </div> 
+              <div className='mapContainer'>
+                <NewMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
+                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+              </div>
             </>
             }
-            <button onClick={logout}>Logout</button>
           </div>
         </Route>
         <Route path="/edit">
-          <div>
+          <div className='homeContainer'>
             {user &&
             <> 
-              <h3>Hi {user.name}</h3>
-              <EditMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
-              <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+              <div className='nav'>
+                <h3>Hi {user.name}</h3>
+                <button onClick={logout}>Logout</button>
+              </div> 
+              <div className='mapContainer'>
+                <EditMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
+                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+              </div>
             </>
             }
-            <button onClick={logout}>Logout</button>
           </div>
         </Route>
         <Route path="/home">
-          <div>
+          <div className='homeContainer'>
             {user &&
             <> 
-              <h3>Hello {user.name}</h3>
-              <Map mapData={mapData} setMapData={setMapData}/>
-              <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+              <div className='nav'>
+                <h3>Hi {user.name},</h3>
+                <button className='button' onClick={logout}>Logout</button>
+              </div> 
+              <div className='mapContainer'>
+                <Map mapData={mapData} setMapData={setMapData}/>
+                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+              </div>
             </>
             }
-            <button onClick={logout}>Logout</button>
           </div>
         </Route>
       </Switch>

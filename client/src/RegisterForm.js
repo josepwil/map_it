@@ -34,7 +34,7 @@ function RegisterForm(props) {
 
   return (
     <div className='formContainer'>
-    <h3>Register</h3>
+    <h3>Mapper</h3>
     <form onSubmit={(event => handleSubmit(event))}>
       <input 
         type="text" 

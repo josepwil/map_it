@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -6,8 +8,6 @@
   background-color: aliceblue;
   padding: 2rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  
-
   
   h3 {
     margin: 0 0 1rem 0;
@@ -43,6 +43,77 @@
     font-size: 12px;
   }
 }
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    font-family: 'VT323', monospace;
+
+    h3 {
+      font-size: 50px;
+      color: greenyellow;
+      margin: 0;
+    }
+  }
+
+  .mapContainer {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+
+    .mapContainerL {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40rem;
+      width: 40rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      margin: 0 2rem;
+    }
+
+    .mapContainerR {
+      width: 20rem;
+      height: 40rem;
+      margin: 0 2rem;
+      background-color: rgba(255, 255, 255, 0.8);
+
+      .list {
+        height: 39rem;
+        overflow: auto;
+        scrollbar-width: none;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .editIcon:hover {
+          cursor: pointer;
+          color: blue;
+        }
+
+        .deleteIcon:hover {
+          cursor: pointer;
+          color: red;
+        }
+      }
+      li:hover {
+        background-color: white;
+      }    
+    }
+  }
+}
+
 
 
 

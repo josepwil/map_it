@@ -55,9 +55,9 @@ function NewMap(props) {
   }
 
   return (
-    <div style={{height: '600px', width: '600px'}}>
+    <div className='mapContainerL'>
       <input value={props.mapData.title} onChange={e => handleNameChange(e.target.value)} />
-      <MapContainer style={{height: '400px', width: '90%'}} center={props.mapData.center} zoom={13} scrollWheelZoom={false}>
+      <MapContainer style={{height: '85%', width: '85%'}} center={props.mapData.center} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
