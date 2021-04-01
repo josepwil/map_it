@@ -11,7 +11,8 @@
   
   h3 {
     margin: 0 0 1rem 0;
-    font-size: 24px;
+    font-size: 45px;
+    font-family: 'VT323', monospace;
   }
 
   form {
@@ -92,7 +93,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 40rem;
+      height: 80vh;
       width: 40rem;
       background-color: rgba(255, 255, 255, 0.8);
       margin: 0 2rem;
@@ -127,7 +128,7 @@
 
     .mapContainerR {
       width: 20rem;
-      height: 40rem;
+      height: 80vh;
       margin: 0 2rem;
       background-color: rgba(255, 255, 255, 0.8);
       box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -160,6 +161,39 @@
     }
   }
 }
+
+@media only screen and (max-width: 960px) {
+  .homeContainer {
+    margin-top: 1rem;
+
+    .mapContainer {
+      flex-direction: column;
+      
+      .mapContainerL {
+        width: 98vw;
+        margin: auto;
+        height: 60vh;
+
+        h3 {
+          font-size: 40px;
+        }
+
+        input {
+          width: 90%;
+        }
+      }
+      .mapContainerR {
+        width: 98vw;
+        margin: 0.5rem auto;
+        height: auto;
+
+        .list {
+          height: auto;
+        }
+      }
+    }
+  }
+  }
 
 
 
