@@ -55,16 +55,16 @@
 
   .nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: 'VT323', monospace;
     width: 100vw;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 
     h3 {
       font-size: 50px;
       color: greenyellow;
-      margin: 0;
+      margin: 0 2rem;
     }
 
     .button {
@@ -74,6 +74,7 @@
       font-family: 'VT323', monospace;
       color: greenyellow;
       font-weight: bold;
+      margin: 0 2rem;
     }
 
     .button:hover {
@@ -85,7 +86,7 @@
   .mapContainer {
     display: flex;
     width: 100vw;
-    justify-content: center;
+    justify-content: space-evenly;
     
 
     .mapContainerL {
@@ -94,7 +95,7 @@
       align-items: center;
       justify-content: center;
       height: 80vh;
-      width: 40rem;
+      width: 60rem;
       background-color: rgba(255, 255, 255, 0.8);
       margin: 0 2rem;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -106,7 +107,7 @@
         margin: 1rem;
       }
 
-      input {
+      input:not(.edit) {
         font-family: 'VT323', monospace;
         font-size: 50px;
         font-weight: bold;
@@ -127,7 +128,7 @@
     }
 
     .mapContainerR {
-      width: 20rem;
+      width: 30rem;
       height: 80vh;
       margin: 0 2rem;
       background-color: rgba(255, 255, 255, 0.8);
@@ -135,7 +136,7 @@
 
 
       .list {
-        height: 39rem;
+        height: 78vh;
         overflow: auto;
         scrollbar-width: none;
       }
@@ -164,7 +165,17 @@
 
 @media only screen and (max-width: 960px) {
   .homeContainer {
-    margin-top: 1rem;
+    margin-top: 30rem;
+
+    .nav {
+      h3 {
+        margin: 0 0 0.5rem;
+      }
+
+      .button {
+        margin: 0;
+      }
+    }
 
     .mapContainer {
       flex-direction: column;

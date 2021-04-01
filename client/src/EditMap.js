@@ -77,7 +77,7 @@ function EditMap(props) {
           return(
             <Marker key={index} position={marker.coords}>
               <Popup>
-                <input onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>
+                <input className='edit' onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>
                 <DeleteIcon onClick={() => deleteMarker(index)} />
               </Popup>
             </Marker>
