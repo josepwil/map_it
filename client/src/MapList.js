@@ -1,6 +1,6 @@
 import './App.scss'
 
-import { useEffect, useState, forceUpdate } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 
@@ -10,9 +10,6 @@ import EditIcon from '@material-ui/icons/Edit';
 
 function MapList ({ setMapData, mapData, maps, getMapData }) {
 const history = useHistory()
-
-console.log('rendering maplist')
-
 
 const handleClick = (id) => {
   axios.get(`/api/maps/${id}`)
@@ -71,12 +68,15 @@ useEffect(() => {
 
 
   return (
+    <>
+    {maps && (maps.length > 0) &&
+    
     <div className='mapContainerR'>
       <List className='list'>
         { maps &&
           maps.map((map) => {
             return (
-              <li>
+              <li key={map.id}>
               <ListItem button key={map.id} onClick={() => handleClick(map.id)} style={{"&:hover": {backgroundColor: "white"}}} >
                 <ListItemText disableTypography primary={map.title} style={{fontFamily: "'VT323', monospace", fontSize:"20px"}}/>
               </ListItem>
@@ -88,7 +88,8 @@ useEffect(() => {
         }
       </List>
     </div>
-
+    }
+  </>  
   )
 }
 

@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import NewMapController from './NewMapController'
@@ -10,7 +9,7 @@ import axios from 'axios'
 
 function EditMap(props) {
   const history = useHistory();
-  const [mapName, setMapName] = useState('name your map');
+
 
   const setMarkerPopup = (e, index) => {
     const markerCopy = [...props.mapData.markers];

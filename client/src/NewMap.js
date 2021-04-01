@@ -1,14 +1,12 @@
-import { useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import NewMapController from './NewMapController'
 import AddMarker from './AddMarker'
 import axios from 'axios'
 
 function NewMap(props) {
   const history  = useHistory();
-  const [mapName, setMapName] = useState('name your map');
 
   const setMarkerPopup = (e, index) => {
     const markerCopy = [...props.mapData.markers];
@@ -56,7 +54,7 @@ function NewMap(props) {
 
   return (
     <div className='mapContainerL'>
-      <input autofocus value={props.mapData.title} onChange={e => handleNameChange(e.target.value)} />
+      <input autoFocus value={props.mapData.title} onChange={e => handleNameChange(e.target.value)} />
       <MapContainer style={{height: '85%', width: '85%'}} center={props.mapData.center} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

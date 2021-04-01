@@ -10,8 +10,6 @@ import NewMap from './NewMap'
 import EditMap from './EditMap'
 
 function Home (props) {
-  console.log('rendering home')
-
   const history = useHistory()
   const user = useContext(UserContext).user
   const [mapData, setMapData] = useState({
@@ -23,6 +21,7 @@ function Home (props) {
     ]
   })  
   const [maps, setMaps] = useState()
+  console.log(maps)
 
   const getMapData = () => {
     axios.get('/api/maps')

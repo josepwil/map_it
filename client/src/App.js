@@ -8,8 +8,6 @@ import { UserContext } from './UserContext'
 import axios from 'axios';
 
 function App() {
-  console.log('rendering app')
-
   const [state, setState] = useState({
     isLoggedIn: false,
     user: {}

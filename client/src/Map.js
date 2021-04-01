@@ -1,11 +1,9 @@
 import { useHistory } from 'react-router'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MapController from './MapController'
 
 function Map(props) {
-  const history = useHistory();
-  console.log('rendering map')
-  
+  const history = useHistory();  
   const handleClick = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
