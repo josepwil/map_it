@@ -13,22 +13,44 @@ function Home (props) {
   const history = useHistory()
   const user = useContext(UserContext).user
   const [mapData, setMapData] = useState({
-    title: 'Best Pizza spots in London',
+    title: 'here\'s a map, click +NEWMAP to make your own ',
     center: [51.505, -0.09],
     markers: [
-      {coords: [51.505, -0.09], popup: 'dominos'}, 
-      {coords: [51.500, -0.09], popup: 'pizza hut'}
+      {coords: [51.505, -0.09], popup: 'best coffee'}, 
+      {coords: [51.500, -0.09], popup: 'second best coffee'}
     ]
   })  
   const [maps, setMaps] = useState()
-  console.log(maps)
 
+  const handleClick = (id) => {
+    axios.get(`/api/maps/${id}`)
+      .then(res => {
+        const {map, markers} = res.data
+        const formattedMarkers = markers.map(marker => {
+          return {
+            ...marker,
+            coords: marker.coords.split(',').map(x => parseFloat(x))
+          }
+        })
+        const formattedMap = {
+          ...map, 
+          center: map.center.split(',').map(x => parseFloat(x)),
+          markers: formattedMarkers
+        }
+        setMapData(formattedMap);
+        history.push('/home')
+      })
+  }
+ 
   const getMapData = () => {
     axios.get('/api/maps')
     .then(res => {
       setMaps(res.data.maps)
+      res.data.maps.length > 0 && handleClick(res.data.maps[0].id)
     })
   }
+
+  
 
   const logout = () => {
     axios.post('/api/logout')

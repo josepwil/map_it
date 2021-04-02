@@ -63,9 +63,10 @@ const editMap = (id) => {
 }
 
 useEffect(() => {
-  getMapData()
+  getMapData()    
 }, [])
 
+console.log(maps)
 
   return (
     <>
