@@ -4,18 +4,31 @@ import { useHistory, Link } from 'react-router-dom'
 
 function LoginForm (props) {
   const history = useHistory()
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if(!email) {
+      setError('please enter email')
+      return 0
+    }
+    if(!password) {
+      setError('please enter password')
+      return 0
+    }
 
     axios.post('/api/login', {
       email: email,
       password: password
     })
     .then(response => {
+      console.log(response.data)
+      if (response.data.status === 401) {
+        setError(response.data.errors[0])
+      }
       if (response.data.logged_in) {
         props.handleLogin(response.data)
         history.push('/home') 
@@ -41,6 +54,7 @@ function LoginForm (props) {
         onChange={e => setPassword(e.target.value)}
         placeholder="password"
       />
+      {error && <p style={{color: 'red'}}>{error}</p>}
       <input className='button' 
         type="submit"
         value="login"

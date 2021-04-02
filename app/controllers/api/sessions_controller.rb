@@ -10,10 +10,15 @@ class Api::SessionsController < ApplicationController
         logged_in: true,
         user: @user
       }
+    elsif !@user
+      render json: {
+        status: 401,
+        errors: ['no such user']
+      }
     else 
       render json: {
         status: 401,
-        errors: ['no such user, try again']
+        errors: ['incorrect password']
       }
     end
   end
