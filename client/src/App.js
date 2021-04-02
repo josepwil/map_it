@@ -51,8 +51,8 @@ function App() {
             <Home handleLogout={handleLogout}/>
           </Route>
 
-          <Route path='/register' handleLogin={handleLogin}>
-            <RegisterForm/>
+          <Route path='/register'>
+            <RegisterForm handleLogin={handleLogin}/>
           </Route>
 
           <Route path='/'>

@@ -75,7 +75,7 @@ function Home (props) {
               </div> 
               <div className='mapContainer'>
                 <NewMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
-                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData} handleClick={handleClick}/>
               </div>
             </>
             }
@@ -91,7 +91,7 @@ function Home (props) {
               </div> 
               <div className='mapContainer'>
                 <EditMap mapData={mapData} setMapData={setMapData} getMapData={getMapData}/>
-                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData} handleClick={handleClick}/>
               </div>
             </>
             }
@@ -107,7 +107,7 @@ function Home (props) {
               </div> 
               <div className='mapContainer'>
                 <Map mapData={mapData} setMapData={setMapData}/>
-                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData}/>
+                <MapList setMapData={setMapData} mapdata={mapData} maps={maps} getMapData={getMapData} handleClick={handleClick}/>
               </div>
             </>
             }

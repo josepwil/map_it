@@ -8,28 +8,10 @@ import { List, ListItem, ListItemText } from '@material-ui/core'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
 
-function MapList ({ setMapData, mapData, maps, getMapData }) {
+function MapList ({ setMapData, mapData, maps, getMapData, handleClick }) {
 const history = useHistory()
 
-const handleClick = (id) => {
-  axios.get(`/api/maps/${id}`)
-    .then(res => {
-      const {map, markers} = res.data
-      const formattedMarkers = markers.map(marker => {
-        return {
-          ...marker,
-          coords: marker.coords.split(',').map(x => parseFloat(x))
-        }
-      })
-      const formattedMap = {
-        ...map, 
-        center: map.center.split(',').map(x => parseFloat(x)),
-        markers: formattedMarkers
-      }
-      setMapData(formattedMap);
-      history.push('/home')
-    })
-}
+
 
 const deleteMap = (id) => {
   axios.delete(`/api/maps/${id}`)
