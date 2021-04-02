@@ -25,7 +25,6 @@ function LoginForm (props) {
       password: password
     })
     .then(response => {
-      console.log(response.data)
       if (response.data.status === 401) {
         setError(response.data.errors[0])
       }

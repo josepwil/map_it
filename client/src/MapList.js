@@ -48,7 +48,6 @@ useEffect(() => {
   getMapData()    
 }, [])
 
-console.log(maps)
 
   return (
     <>
