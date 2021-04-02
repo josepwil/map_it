@@ -3,19 +3,34 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MapController from './MapController'
 
 function Map(props) {
-  const history = useHistory();  
-  const handleClick = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude, longitude } = position.coords;
-      
-      props.setMapData({
-        title: 'new map',
-        center: [latitude, longitude],
-        markers: []
-      })
-    }) 
+  const history = useHistory(); 
+  
+  const locationOptions = {
+    timeout: 5000
+  }
+
+  const handleLocationError = (err) => {
+    props.setMapData({
+      title: 'new map',
+      center: [49.283832198, -123.119332856],
+      markers: []
+    })
     history.push('/add')
-   }
+  }
+
+  const handleLocationSucess = (position) => {
+    const { latitude, longitude } = position.coords;
+    props.setMapData({
+      title: 'new map',
+      center: [latitude, longitude],
+      markers: []
+    })
+    history.push('/add')
+  }
+  
+  const handleClick = () => {
+    navigator.geolocation.getCurrentPosition(handleLocationSucess, handleLocationError, locationOptions)
+  }
 
   return(
     <div className='mapContainerL'>
