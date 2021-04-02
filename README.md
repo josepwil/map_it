@@ -21,5 +21,18 @@ Responsive Design:
 
 
 ## Getting started
-run the server: bin/rails s
-run the client: npm start
+1. Run ``bundle install`` to install dependencies
+2. Run ``bin/rails db:reset``, to create and load the db
+3. In a new terminal window, ``cd client`` and run ``npm install``
+4. In the original terminal window run ``bin/rails s``
+5. In the client window run ``npm start``
+6. Visit http://localhost:3000/ to start using the app
+
+
+## Dependencies
+- Rails ^6.0.0
+- React ^17.0.1
+- Sass ^5.0.0
+- Material-UI ^4.11.3
+- Axios 0.21.1
+- Leaflet ^1.7.1
