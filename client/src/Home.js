@@ -97,7 +97,7 @@ function Home (props) {
             }
           </div>
         </Route>
-        <Route path="/home">
+        <Route path="/">
           <div className='homeContainer'>
             {user &&
             <> 

@@ -71,8 +71,7 @@ function NewMap(props) {
           return(
             <Marker key={index} position={marker.coords}>
               <Popup>
-                {/* needs work */}
-                {<input onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>}
+                <input className='edit' onChange={(e) => setMarkerPopup(e, index)} value={marker.popup} autoFocus/>
               </Popup>
             </Marker>
           )
